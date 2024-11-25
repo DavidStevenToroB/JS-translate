@@ -4,35 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>TRANSLATE</title>
 </head>
 <body>
   <header>
     <h1>TRANSLATE</h1>
+    <form action="templates/form.html">
+      <button>Crear palabra</button>
+    </form>
   </header>
   <main>
     <!-- TRANSLATE -->
-    <section>
+    <section class="translate">
 
       <!-- organice EN - ES -->
       <aside>
         <select name="" id="select-EN-ES">
-          <option value="EN-ES">English > Spanish</option>
-          <option value="ES-EN">Español > Ingles</option>
+          <option value="EN-ES">English | | Spanish</option>
+          <option value="ES-EN">Español | | Ingles</option>
         </select>
       </aside>
 
       <!-- search & translation -->
-      <aside>
+      <aside class="searchAndAnswer">
         <div>
-          <input type="text" value="" placeholder="ingrese la palabra" id="search">
+          <input type="text" value="" placeholder="ingrese la palabra..." id="search">
         </div>
-        <div>
-          <h3 id="answer">digite una palabra</h3>
+        <div id="div-answer">
+          <h3 id="answer">digite una palabra...</h3>
         </div>
       </aside>
+      <!-- button -->
+      <aside>
+        <button id="translate">Traducir</button>
+      </aside>
       
-      <button id="translate">Traducir</button>
     </section>
 
     <!-- ALL WORDS -->
@@ -66,5 +75,6 @@
   <footer></footer>
   <script type="module" src="script/app.js"></script>
   <script type="module" src="script/dictionary.js"></script>
+  <script type="module" src="script/form.js"></script>
 </body>
 </html>

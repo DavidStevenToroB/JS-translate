@@ -1,18 +1,20 @@
 import { dictionary } from "./dictionary.js"
+const storeDictionary = localStorage.getItem('storeD')
+let dictionary = JSON.parse(storeDictionary) || []
 
 const btnTranslate = document.getElementById('translate')
 const answer = document.getElementById('answer')
 const asideDictionary =  document.getElementById('aside-Dictionary')
 const optCategories = document.getElementById('select-categories')
 const sortOption = document.getElementById('A-Z')
-let words
+
 //search
 const filterWord = () => {
   const search = document.getElementById('search').value.toLowerCase()
   let average = null
 
   if (search.length == 0) {
-    answer.innerHTML = 'buscar significado'
+    answer.innerHTML = 'buscar significado...'
   } else{
     average = searchAnimal(search)
   }
@@ -28,7 +30,7 @@ const filterWord = () => {
           if (average.length == 0) {
             average = searchVerbs(search)
             if (average.length == 0){
-              average = null
+              answer.textContent = 'la palabra no se encuentra en el diccionario'
             }
           }
         }
@@ -112,7 +114,6 @@ const englishOrSpanish = () => {
 const categories = () => {
 
   let categories = optCategories.value
-  showAllDescriptions()
 
   if (categories == "all") {
     asideDictionary.innerHTML = ''
@@ -138,58 +139,6 @@ const categories = () => {
   }
 }
 
-// sort
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-////////////////////////////////////////////////
-//REVISAR EL SORT
-////////////////////////////////////////////////
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-const sort =  () => {
-  let optSort = sortOption.value
-  animalsSort(optSort)
-}
-
-const animalsSort = (optSort) => {
-  dictionary.categories.animals.sort((a,b) =>{
-    if (optSort == "A-Z") {
-      words = a.english.localeCompare(b.english)
-    } else if (optSort == "Z-A") {
-      words = b.english.localeCompare(a.english)
-    }
-  }
-  )
-  for (let i = 0; i < words.length; i++) {
-    makeDescriptions(words[i])
-  }
-}
-const fruitsSort = () => {
-  dictionary.categories.fruits.forEach(word => {
-   makeDescriptions(word)
-  })
-}
-const colorsSort = () => {
-  dictionary.categories.colors.forEach(word => {
-   makeDescriptions(word)
-  })
-}
-const physical_descriptionsSort = () => {
-  dictionary.categories.physical_descriptions.forEach(word => {
-   makeDescriptions(word)
-  })
-}
-const skillsSort = () => {
-  dictionary.categories.skills.forEach(word => {
-   makeDescriptions(word)
-  })
-}
-const verbsSort = () => {
-  dictionary.categories.verbs.forEach(word => {
-   makeDescriptions(word)
-  })
-}
-
 // diccionary
 const makeDescriptions = (word) => {
 
@@ -197,19 +146,19 @@ const makeDescriptions = (word) => {
   container.id = 'div-descriptions'
   
   const lenguageE = document.createElement('h4')
-  lenguageE.textContent = 'English: '
+  lenguageE.textContent = 'English:'
   
   const english = document.createElement('h4')
   english.textContent = word.english
 
   const lenguageS = document.createElement('h4')
-  lenguageS.textContent = 'Spanish: '
+  lenguageS.textContent = 'Español:'
 
   const spanish = document.createElement('h4')
   spanish.textContent = word.spanish
 
   const exampleT = document.createElement('h4')
-  exampleT.textContent = 'Example: '
+  exampleT.textContent = 'Example:'
 
   const example = document.createElement('h4')
   example.textContent = word.example
@@ -224,39 +173,87 @@ const makeDescriptions = (word) => {
   asideDictionary.appendChild(container)
 }
 const showAllDescriptions = () => {
-  animals(dictionary)
-  fruits(dictionary)
-  colors(dictionary)
-  physical_descriptions(dictionary)
-  skills(dictionary)
-  verbs(dictionary)
+  animals()
+  fruits()
+  colors()
+  physical_descriptions()
+  skills()
+  verbs()
 }
 const animals = () => {
+  dictionary.categories.animals.sort((a,b) =>{
+    if (sortOption.value == "A-Z") {
+    return a.english.localeCompare(b.english)
+    } else if (sortOption.value == "Z-A") {
+    return b.english.localeCompare(a.english)
+    }
+  }
+  )
   dictionary.categories.animals.forEach(word => {
    makeDescriptions(word)
   })
 }
 const fruits = () => {
+  dictionary.categories.fruits.sort((a,b) =>{
+    if (sortOption.value == "A-Z") {
+    return a.english.localeCompare(b.english)
+    } else if (sortOption.value == "Z-A") {
+    return b.english.localeCompare(a.english)
+    }
+  }
+  )
   dictionary.categories.fruits.forEach(word => {
    makeDescriptions(word)
   })
 }
 const colors = () => {
+  dictionary.categories.colors.sort((a,b) =>{
+    if (sortOption.value == "A-Z") {
+    return a.english.localeCompare(b.english)
+    } else if (sortOption.value == "Z-A") {
+    return b.english.localeCompare(a.english)
+    }
+  }
+  )
   dictionary.categories.colors.forEach(word => {
    makeDescriptions(word)
   })
 }
 const physical_descriptions = () => {
+  dictionary.categories.physical_descriptions.sort((a,b) =>{
+    if (sortOption.value == "A-Z") {
+    return a.english.localeCompare(b.english)
+    } else if (sortOption.value == "Z-A") {
+    return b.english.localeCompare(a.english)
+    }
+  }
+  )
   dictionary.categories.physical_descriptions.forEach(word => {
    makeDescriptions(word)
   })
 }
 const skills = () => {
+  dictionary.categories.skills.sort((a,b) =>{
+    if (sortOption.value == "A-Z") {
+    return a.english.localeCompare(b.english)
+    } else if (sortOption.value == "Z-A") {
+    return b.english.localeCompare(a.english)
+    }
+  }
+  )
   dictionary.categories.skills.forEach(word => {
    makeDescriptions(word)
   })
 }
 const verbs = () => {
+  dictionary.categories.verbs.sort((a,b) =>{
+    if (sortOption.value == "A-Z") {
+    return a.english.localeCompare(b.english)
+    } else if (sortOption.value == "Z-A") {
+    return b.english.localeCompare(a.english)
+    }
+  }
+  )
   dictionary.categories.verbs.forEach(word => {
    makeDescriptions(word)
   })
@@ -264,4 +261,6 @@ const verbs = () => {
 
 btnTranslate.addEventListener('click', englishOrSpanish)
 optCategories.addEventListener('change', categories)
-sortOption.addEventListener('change', sort)
+sortOption.addEventListener('change', categories)
+
+window.addEventListener('DOMContentLoaded', categories)
