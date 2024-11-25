@@ -11,10 +11,10 @@
 </head>
 <body>
   <header>
+    <section class="insert">
+      <button id="add">New Word</button>
+    </section>
     <h1>TRANSLATE</h1>
-    <form action="templates/form.html">
-      <button>Crear palabra</button>
-    </form>
   </header>
   <main>
     <!-- TRANSLATE -->
@@ -40,6 +40,29 @@
       <!-- button -->
       <aside>
         <button id="translate">Traducir</button>
+      </aside>
+
+       <!--create register  -->
+      <aside class="form">
+        <section>
+          <span id="close">X</span>
+          <h3>crear una palabra</h3>
+          <select name="" id="create-word" >
+            <option value="animals">Animals - Animales</option>
+            <option value="fruits">Fruits - Frutas</option>
+            <option value="colors">Colors - Colores</option>
+            <option value="descriptions">Descriptions - Descripciones</option>
+            <option value="skills">Skills - Habilidades</option>
+            <option value="verbs">Verbs - Verbos</option>
+          </select>
+          <h4>palabra español</h4>
+          <input id="form-Spanish" type="text" placeholder="ingrese la palabra que desea" >
+          <h4>palabra ingles</h4>
+          <input id="form-English" type="text" placeholder="traduccion de la palabra" >
+          <h4>ejemplo</h4>
+          <input id="form-Example" type="text" placeholder="escribe el ejemplo de tu palabra">
+          <button id="form-btn"> Agregar </button>
+        </section>
       </aside>
       
     </section>

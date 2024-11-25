@@ -5,23 +5,40 @@
   font-family: "Roboto Condensed";
 }
 
-header{
+header {
+  padding: 2rem;
   margin-bottom: 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  align-items: center;
+  font-family: "Roboto Condensed";
+  background: linear-gradient(to right, rgb(0, 110, 255), rgb(0, 140, 255), rgb(0, 183, 255), rgb(178, 237, 255));
+  color: white;
 }
 
-main{
+#add {
+  margin: 0 1rem;
+  padding: 0.5rem 2.5rem;
+  border: 0.3rem solid rgb(255, 0, 170);
+  border-radius: 100px;
+  background-color: rgb(255, 0, 170);
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Roboto Condensed";
+}
+
+main {
   display: flex;
   justify-content: space-around;
+  /* flex-direction: column; */
 }
 
-.translate{
+.translate {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-select{
+select {
   margin-top: 0.2rem;
   margin-right: 0.3rem;
   padding: 0.8rem 3rem;
@@ -29,7 +46,7 @@ select{
   border-radius: 100px;
   font-size: 1rem;
 }
-.searchAndAnswer{
+.searchAndAnswer {
   margin-top: 0.5rem;
   margin-bottom: 5rem;
   display: flex;
@@ -37,60 +54,115 @@ select{
   align-items: start;
   font-size: 1.5rem;
 }
-.searchAndAnswer > div{
-  margin-right: 0.3rem;
-  padding-bottom: 12.3rem;
+.searchAndAnswer > div {
+  padding-bottom: 12rem;
   padding-top: 1rem;
-  border-right: 0.2rem solid black;
 }
-#search{
-  margin-right: 0.2rem;
+#search {
   padding: 0 0.6rem 0 0;
   border: none;
   font-size: 1.5rem;
   font-family: "Roboto Condensed";
 }
-#div-answer{
+#div-answer {
   padding-bottom: 8rem;
   padding-left: 1rem;
   border-left: 0.2rem solid black;
   border-right: none;
 }
-#answer{
+#answer {
   width: 18rem;
 }
 
-button{
+button {
   padding: 1rem 4rem;
-  border: 0.3rem solid rgb(0, 162, 255);
+  border: 0.3rem solid rgb(255, 0, 170);
   border-radius: 100px;
-  background-color: rgb(0, 162, 255);
+  background-color: rgb(255, 0, 170);
   color: white;
   font-size: 1.5rem;
   font-family: "Roboto Condensed";
 }
-button:hover{
-  background-color: rgb(2, 137, 228);
-  border-color:  rgb(2, 137, 228);
+button:hover {
+  background-color: rgb(10, 104, 226);
+  border-color: rgb(153, 4, 103);
 }
-select:hover{
-  border-color:  rgb(2, 137, 228);
+#add:hover {
+  background-color: rgb(226, 10, 154);
+  border-color: rgb(153, 4, 103);
+}
+select:hover {
+  border-color:  rgb(255, 0, 170);
 }
 
-
+#section-allWords{
+  width: 50%;
+}
+#aside-Dictionary{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;    
+}
 #div-descriptions {
+  padding: 0.5rem;
   display: flex;
-}
-#div-descriptions h4{
-  display: flex;
+  flex-direction: column;
+  width: 8rem;
+  box-shadow: 1px 1px 1px 1px rgb(0, 183, 255);
+  border-radius: 1rem;
 }
 #div-descriptions > h4 {
-  margin-right: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-size: 1.1rem;
 }
-
-#section-allWords > div{
+#section-allWords > div {
   display: flex;
   flex-direction: row;
+}
+
+.form {
+  display: none;
+}
+.form > section {
+  margin-top: 2rem;
+  padding: 10rem;
+  border: 3px solid rgb(0, 162, 255);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 50%; 
+	top: 50%; 
+	transform: translate(-50%, -50%); 
+  z-index: 1000;
+  background-color: rgba(218, 227, 228, 0.842);
+}
+.form > section > h3 {
+  width: 200px;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.form > section > h4 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+.form > section > input {
+  padding: 0rem 1rem 0rem 0rem;
+  margin-bottom: 1rem;
+  border: 3px solid rgb(0, 162, 255);
+  font-size: 1.2rem;
+}
+#close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+	color: crimson;
+}
+#create-word {
+  margin-bottom: 1rem;
 }
