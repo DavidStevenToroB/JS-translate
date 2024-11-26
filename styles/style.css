@@ -8,12 +8,16 @@
 header {
   padding: 2rem;
   margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: start;
   align-items: center;
   font-family: "Roboto Condensed";
+  font-size: 1.3rem;
   background: linear-gradient(to right, rgb(0, 110, 255), rgb(0, 140, 255), rgb(0, 183, 255), rgb(178, 237, 255));
   color: white;
+  z-index: 10;
 }
 
 #add {
@@ -30,13 +34,16 @@ header {
 main {
   display: flex;
   justify-content: space-around;
-  /* flex-direction: column; */
 }
 
 .translate {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+  z-index: 0;
 }
 select {
   margin-top: 0.2rem;
@@ -84,11 +91,11 @@ button {
   font-family: "Roboto Condensed";
 }
 button:hover {
-  background-color: rgb(10, 104, 226);
+  background-color: rgb(255, 0, 170);
   border-color: rgb(153, 4, 103);
 }
 #add:hover {
-  background-color: rgb(226, 10, 154);
+  background-color: rgb(255, 0, 170);
   border-color: rgb(153, 4, 103);
 }
 select:hover {
@@ -97,18 +104,19 @@ select:hover {
 
 #section-allWords{
   width: 50%;
+  display: flex;
 }
 #aside-Dictionary{
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;    
+  gap: 10px;    
 }
 #div-descriptions {
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   width: 8rem;
-  box-shadow: 1px 1px 1px 1px rgb(0, 183, 255);
+  box-shadow: 3px 1px 5px 1px rgb(0, 183, 255);
   border-radius: 1rem;
 }
 #div-descriptions > h4 {
@@ -116,8 +124,14 @@ select:hover {
   font-size: 1.1rem;
 }
 #section-allWords > div {
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+  z-index: 1;
 }
 
 .form {
@@ -125,8 +139,9 @@ select:hover {
 }
 .form > section {
   margin-top: 2rem;
-  padding: 10rem;
-  border: 3px solid rgb(0, 162, 255);
+  padding: 2rem 3rem;
+  border: transparent;
+  box-shadow: 3px 3px 20px rgb(1, 74, 116);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -134,35 +149,64 @@ select:hover {
   align-items: center;
   position: fixed;
   left: 50%; 
-	top: 50%; 
+	top: 55%; 
 	transform: translate(-50%, -50%); 
-  z-index: 1000;
-  background-color: rgba(218, 227, 228, 0.842);
+  z-index: 10;
+  background-color: rgba(1, 74, 116, 0.507);
+  color: rgb(255, 255, 255);
 }
-.form > section > h3 {
-  width: 200px;
+.form > section > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form > section > h3{
   margin-bottom: 2rem;
   font-size: 2rem;
   text-align: center;
 }
-.form > section > h4 {
+.form > section > div > aside > h4{
   margin-top: 1rem;
   font-size: 1.5rem;
 }
-.form > section > input {
-  padding: 0rem 1rem 0rem 0rem;
+.form > section > div > aside > input {
+  padding: 0 1rem 0.6rem 0.7rem;
   margin-bottom: 1rem;
   border: 3px solid rgb(0, 162, 255);
+  border-radius: 15px;
+  font-size: 1.2rem;
+}
+#form-Example {
+  padding: 0 1rem 2rem 0.4rem;
+  margin-bottom: 1rem;
+  margin-right: 0;
+  border: 3px solid rgb(0, 162, 255);
+  border-radius: 15px;
   font-size: 1.2rem;
 }
 #close {
 	position: absolute;
 	top: 10px;
-	right: 10px;
-	font-size: 20px;
+	right: 20px;
+	font-size: 2rem;
 	cursor: pointer;
-	color: crimson;
+	color: rgb(255, 0, 0);
 }
 #create-word {
   margin-bottom: 1rem;
+}
+
+footer{
+  padding: 1rem;
+  margin-top: 1rem;
+  /* position: sticky;
+  bottom: 0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Condensed";
+  background: linear-gradient(to left, rgb(0, 110, 255), rgb(0, 140, 255), rgb(0, 183, 255), rgb(178, 237, 255));
+  color: white;
 }

@@ -21,7 +21,10 @@ btn_adder.addEventListener('click', (() => {
 
 //close
 const closed = () => {
- const adder_section = document.querySelector('.form')
+  const adder_section = document.querySelector('.form')
+  spanishWord.value = ''
+  englishWord.value= ''
+  exampleWord.value = ''
   adder_section.style.display = 'none'
 }
 
@@ -308,11 +311,16 @@ const createWord = (word) => {
   let english = englishWord.value
   let example = exampleWord.value
 
-  let wordTranlation = {
-    "id": id ,"english": english, "spanish": spanish, "example": example
+  if ((spanish.length = 0) && (english.length = 0) && (example.length = 0)) {
+    let wordTranlation = {
+      "id": id ,"english": english, "spanish": spanish, "example": example
+    }
+    
+    word.push(wordTranlation)
+  } else {
+    console.log(salir)
   }
   
-  word.push(wordTranlation)
   closed()
 }
 
