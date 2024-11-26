@@ -311,17 +311,19 @@ const createWord = (word) => {
   let english = englishWord.value
   let example = exampleWord.value
 
-  if ((spanish.length = 0) && (english.length = 0) && (example.length = 0)) {
+  if (spanish.length == 0 || english.length == 0 || example.length == 0) {
+    console.log("salir")
+  } else {
+    
     let wordTranlation = {
       "id": id ,"english": english, "spanish": spanish, "example": example
     }
     
     word.push(wordTranlation)
-  } else {
-    console.log(salir)
+    
+    closed()
   }
   
-  closed()
 }
 
 formBtn.addEventListener('click', chooseCategorie)
