@@ -62,6 +62,7 @@ select {
   font-size: 1.5rem;
 }
 .searchAndAnswer > div {
+  margin-left: 0.5rem;
   padding-bottom: 12rem;
   padding-top: 1rem;
 }
@@ -70,6 +71,7 @@ select {
   border: none;
   font-size: 1.5rem;
   font-family: "Roboto Condensed";
+  
 }
 #div-answer {
   padding-bottom: 8rem;
@@ -81,6 +83,10 @@ select {
   width: 18rem;
 }
 
+input {
+  outline: none;
+}
+
 button {
   padding: 1rem 4rem;
   border: 0.3rem solid rgb(255, 0, 170);
@@ -90,6 +96,7 @@ button {
   font-size: 1.5rem;
   font-family: "Roboto Condensed";
 }
+
 button:hover {
   background-color: rgb(255, 0, 170);
   border-color: rgb(153, 4, 103);
@@ -108,6 +115,7 @@ select:hover {
 }
 #aside-Dictionary{
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;    
 }
@@ -116,7 +124,7 @@ select:hover {
   display: flex;
   flex-direction: column;
   width: 8rem;
-  box-shadow: 3px 1px 5px 1px rgb(0, 183, 255);
+  box-shadow: 0px 0px 5px 1px rgb(0, 183, 255);
   border-radius: 1rem;
 }
 #div-descriptions > h4 {
@@ -185,7 +193,15 @@ select:hover {
   border-radius: 15px;
   font-size: 1.2rem;
 }
-#close {
+#close{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 2rem;
+	cursor: pointer;
+	color: rgb(255, 0, 0);
+}
+#close2{
 	position: absolute;
 	top: 10px;
 	right: 20px;
@@ -197,11 +213,36 @@ select:hover {
   margin-bottom: 1rem;
 }
 
+.error{
+  display: none;
+}
+.error > section{
+  margin-top: 2rem;
+  padding: 3rem 4rem;
+  border: transparent;
+  box-shadow: 3px 3px 20px rgb(255, 0, 170);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 50%; 
+	top: 50%; 
+	transform: translate(-50%, -50%); 
+  z-index: 100;
+  background-color: rgb(255, 255, 255);
+}
+.alert{
+  color: rgb(255, 0, 170);
+}
+.alert > span {
+  color: black;
+}
+
 footer{
   padding: 1rem;
   margin-top: 1rem;
-  /* position: sticky;
-  bottom: 0; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,4 +250,55 @@ footer{
   font-family: "Roboto Condensed";
   background: linear-gradient(to left, rgb(0, 110, 255), rgb(0, 140, 255), rgb(0, 183, 255), rgb(178, 237, 255));
   color: white;
+}
+
+@media screen and (max-width: 352px){
+  
+  header {
+    flex-direction: column-reverse;
+    position: static;
+    top: 0;
+  }
+  main {
+    flex-direction: column;
+  }
+  .translate{
+    margin-bottom: 1rem;
+    position: static;
+    top: 0;
+  }
+  #section-allWords{
+    width: 100%;
+    flex-direction: column;
+  
+  }
+  #section-allWords > div {
+    align-items: center;
+    justify-content: center;
+    position: static;
+    top: 0;
+    z-index: 0;
+  }
+  .searchAndAnswer {
+    flex-direction: column;
+  }
+  .searchAndAnswer > div {
+    padding-bottom: 8rem;
+    padding-left: 1rem;
+    border-bottom: 0.2rem solid black;
+  }
+  .form > section {
+    padding: 2rem 1rem;
+    left: 50%; 
+    top: 50%; 
+    background-color: rgba(1, 74, 116, 0.897);
+  }
+  #alert{
+    text-align: center;
+  }
+  #div-answer {
+    padding-bottom: 8rem;
+    padding-left: 1rem;
+    border: none;
+  }
 }

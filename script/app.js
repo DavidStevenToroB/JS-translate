@@ -11,13 +11,18 @@ const optCategories = document.getElementById('select-categories')
 const sortOption = document.getElementById('A-Z')
 const btn_adder = document.getElementById('add')
 const close = document.getElementById('close')
+const close2 = document.getElementById('close2')
+const alert = document.getElementById('alert')
 
 //view
-btn_adder.addEventListener('click', (() => {
+const view = () => {
   const adder_section = document.querySelector('.form')
   adder_section.style.display = 'block'
 }
-))
+const view2 = () => {
+  const adder_section = document.querySelector('.error')
+  adder_section.style.display = 'block'
+}
 
 //close
 const closed = () => {
@@ -27,10 +32,14 @@ const closed = () => {
   exampleWord.value = ''
   adder_section.style.display = 'none'
 }
+const closed2 = () => {
+  const adder_section = document.querySelector('.error')
+  adder_section.style.display = 'none'
+}
 
 //search
-const filterWord = () => {
-  const search = document.getElementById('search').value.toLowerCase()
+const filterWord = (search) => {
+
   let average = null
 
   if (search.length == 0) {
@@ -120,13 +129,27 @@ const searchVerbs = (search) => {
 
 // orden by translate
 const englishOrSpanish = () => {
-  let average = filterWord()
+  const search = document.getElementById('search').value.toLowerCase()
+  let average = filterWord(search)
   const optEnEs = document.getElementById('select-EN-ES').value
   
-  if (optEnEs === "EN-ES") {
-    answer.textContent = average[0].spanish
-  } else if (optEnEs === "ES-EN") {
-    answer.textContent = average[0].english
+  if (optEnEs == "EN-ES") {
+    
+    if (search != average[0].spanish.toLowerCase()) {
+      answer.textContent = average[0].spanish
+    } else {
+      answer.textContent = "no se encuentra en el diccionario - not found in the dictionary"
+    }
+    
+  } 
+  if (optEnEs == "ES-EN") {
+    
+    if (search != average[0].english.toLowerCase()) {
+      answer.textContent = average[0].english
+    } else {
+      answer.textContent = "no se encuentra en el diccionario - not found in the dictionary"
+    }
+    
   }
 }
 
@@ -311,10 +334,10 @@ const createWord = (word) => {
   let english = englishWord.value
   let example = exampleWord.value
 
-  if (spanish.length == 0 || english.length == 0 || example.length == 0) {
-    console.log("salir")
-  } else {
-    
+    if (spanish.length == 0 || english.length == 0 || example.length == 0) {
+      view2()
+      alert.textContent = 'Alerta:faltan campos por digitar - Warming:missing fields to enter'
+    } else {
     let wordTranlation = {
       "id": id ,"english": english, "spanish": spanish, "example": example
     }
@@ -330,6 +353,8 @@ formBtn.addEventListener('click', chooseCategorie)
 btnTranslate.addEventListener('click', englishOrSpanish)
 optCategories.addEventListener('change', categories)
 sortOption.addEventListener('change', categories)
-close.addEventListener('click',closed)
+close.addEventListener('click', closed)
+close2.addEventListener('click', closed2)
+btn_adder.addEventListener('click', view)
 
 window.addEventListener('DOMContentLoaded', categories)
